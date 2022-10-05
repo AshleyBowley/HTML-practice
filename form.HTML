@@ -8,13 +8,187 @@
 </head>
 <body>
     <h1>travel suggestions</h1>
+       <!--
+        the form tag is used to creat a container where all the inputs for a form must be put inside
+        the attributes that are required are name, id and method
+
+        name gives some descriptive in formation about what the from will be used for.
+    
+        id allows us to refence this form later in fieldsets and other areas of our code.
+    
+       method has two typical values:get and post get is used for forms that do not ask for personal information (search bars, etc.)
+       post is used for forms that ask for personal information (login and signup pages, etc.)>
+       -->
     <form name="travel-suggestions"id="travel"method="get">
      
+        <!--
+        this is a text input. type="text",name, and id are all required attributes.the required
+        attribute is only necessary when you want to make sure the user has to fill in input before submitting the form
+    
+        the type attribute defines the type of input.
+        the name attribute defines the variable name that would be used for the
+        input when the data gets passed to the server (requires back-end scripting,
+        which is beyond the scope of this course).
+    
+        all inputs need a lable with the for attribute that links the lable to the 
+        input using the inputs id attribute.
+        when an input is required, it is important to include the word required in the labels text.
+        -->
         <label for="travel-location">please Enter the city or country you suggest I travel to [required]:</label>
         <input type="text" name="destination" id="travel-location" required />
+        <br/>
+        <br/>
+
+        <!--this is an email input. it requires type,name, and id.
+        
+        optional attibutes are minleength to define the minimum legngth entered by
+        the  user and maxlength to define the maximum length entered.
+        -->
+        
+        <!--[Example 1-555-867-5309]-->
+        <label for="telephone">please enter your telphone number :</label>
+        <input type="tel" name="usertel" id="telphone" minlegth="14" maxlength="22"/>
+        <br/>
+        <br/>
+        <lable for="email-address">Plaase Enter your E-mail-address</lable>
+        <input type="email" name="email" id="email-address" minlength="6" maxlength="40" /> 
+        <br/>
+        <br/>
 
         <lable for="password">please Enter your password:</lable>
         <input type="password" name="userpassword" id="password" />
+        <br/>
+        <br/>
+
+        <form>
+        <label for="phone">Enter your number for updatas:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+        </form>
+        <br/>
+        <br/>
+
+        <!--
+            this is a password input. type="password",name,id are all required
+        attributes.
+        as always, each input needs a lable with the for attribute to link the lable 
+        to an input
+         
+        i have commented this input out because i will not be needing a password
+        input for this form 
+        -->
+
+        <!--<label for="password">please enter your password:</lable>
+        <input type+"password" name="userpassword"id="password" minlength="10" /> -->
+
+        <form>
+            <label for="country">which counttry is this location</label>
+            <select name="countrySelect" id="country">
+                <optgroup label="North America">
+                    <option value="canada">Canada</option>
+                    <option value="unitedStates">U.S.A</option>
+                    <option value="mexico">Mexico</option>
+                </optgroup>
+                <optgroup lable="south America">
+                    <option value="brazil">brazil</option>
+                    <option value="chile">chile</option>
+                </optgroup>
+            </select>
+
+
+            <label for="places to veset">places to go to</label>
+            <input type="text" id="places to veset" name="places to veset">
+        </form>
+        <br/>
+        <br/>
+
+        <!--This is a textarea input. This allows a user to center multiple lines of information for a form
+        
+        name and id are required attributes.
+        Highly recommened attributessa are rows and cols. row defines the number of lines a
+        user can type before a scrollbar appears. cols defines the number of characters across
+        a user can type before their input gose to the next line-->
+        
+        
+        <form 
+        
+           name="user-travel-suggestion" id="travel-suggestion" method="get">
+            <lable for="country">
+                please enter the name of the country you are suggesting (required):
+            </lable>
+            <input name="country"type="text" id="country" required />
+
+            <br />
+            <br />
+
+            <!--a fieldset is an ares in your form where you put input thats are more related to each
+             other then they are related to other inputs in the form(i.e., a list of travel iteams is more 
+             related to each other than the country the person is recommending)
+            
+            form is an important attribute to link the fieldest to the form it is related to.-->
+
+            <fieldest form="travel-suggestion" name="travel-items">
+            <legend>
+            <!--a Legend describes how the inputs inside the fieldset are all related-->
+            </legend>which country is location in ? </lengend>
+            <br/>
+            <br/>
+            <input type="radio" name="country" id="brazil" value="brazil">
+            <label for="brazil">brazil</label>
+            <br/>
+            <br/>
+            <input type="radio" name="country" id="Canada" value="Canada">
+            <label for="canada">canada</label>
+            <br/>
+            <br/>
+            <input type="radio" name="country" id="chile" value="chile">
+            <label for="chile">chile</label>
+            <br/>
+            <br/>
+            <input type="radio" name="country" id="mexico" value="mexico">
+            <label for="mexico">mexico</label>
+            <br/>
+            <br/>
+            <input type="radio" name="country" id="united-states" value="united-states">
+            <label for="united-states">mexico</label>
+            </fieldest>
+            <br/>
+            <br/>
+
+            <input type="text">
+            <label for=>what shoud i bring on this trip</label>
+
+            <br/>
+            <br/>
+            
+            <!--this is a cheackbox input. note, this is an input where the input typically comes
+            before the lable
+        
+            type="cheackbox",name, and id are all required. the value attributes is also reqired
+            and provides its value to the sever if the user cheacks that box and submits the form.
+            In this case, what would be passed to the server is waterBottle=bottle-->
+            <input type="checkbox" id="yes">
+            <label for=> I agree to all the terms and conditions</label>
+
+            <br/>
+            <br/>
+            
+            <!--this is an example of a submit button input. note:this input has to be inside the form tag.
+            type="submit",name, and id are all required. value is optinal for the same reason as rest-->
+            <input type="submit" name="submitButton" id="submit" value="click this to submit your suggestion"/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <!--this is an example of a reset button input. type="rest", name id are all reqired.
+            value is an optional attribute for it you want to change the default text on the botton.-->
+            <input type="reset" name="clearform" id="clear" value="click this to clea all inputs">
+
+            <input type="button"onclick="alert('Hello World')"value="click">
+           
+        
+         
+           
+        </form>
         
     </form>
 </body>
